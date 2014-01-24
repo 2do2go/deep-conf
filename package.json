@@ -1,0 +1,22 @@
+{
+	"name": "deep-conf",
+	"description": "node.js configuration libruary",
+	"version": "0.0.1",
+	"author": "Artem Zhukov <artzhuchka@gmail.com>",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:2do2go/deep-conf.git"
+	},
+	"keywords": [
+		"deep-conf", "deep", "conf", "config", "configuration", "builder", "settings", "env", "environment"
+	],
+	"scripts": {
+		"test": "mocha test/index.js --reporter spec --bail"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"mocha": "1.17.1",
+		"expect.js": "0.2.0"
+	},
+	"main": "./lib/index"
+}
