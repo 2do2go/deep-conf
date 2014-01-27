@@ -17,7 +17,7 @@ Then:
 var configBuilder = require('deep-conf');
 
 configBuilder.register({
-	name: 'development',
+	name: 'sampleConfig',
 	config: {
 		host: 'localhost',
 		port: 80
