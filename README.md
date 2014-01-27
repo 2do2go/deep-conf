@@ -52,6 +52,17 @@ configBuilder.register({
 });
 ```
 
+**update**: update existing config
+
+```js
+configBuilder.update({
+	name: 'development',
+	config: {
+		protocol: 'https'
+	}
+});
+```
+
 **get**: get registered config
 
 ```js
