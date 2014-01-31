@@ -1,10 +1,10 @@
 'use strict';
 
 var expect = require('expect.js');
-var configBuilder = require('../lib');
+var configBuilder = require('../lib')();
 
 describe('ConfigBuilder', function() {
-	it('exported singleton simle config', function() {
+	it('simple config', function() {
 		configBuilder.register({
 			name: 'test',
 			config: {
