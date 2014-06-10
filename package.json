@@ -1,7 +1,7 @@
 {
 	"name": "deep-conf",
 	"description": "node.js configuration libruary",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"author": "Artem Zhukov <artzhuchka@gmail.com>",
 	"repository": {
 		"type": "git",
