@@ -78,4 +78,32 @@ describe('ConfigBuilder', function() {
 
 		expect(res).to.be(6);
 	});
+
+	it('config stringify', function() {
+		configBuilder.register({
+			name: 'stringifyConfig',
+			config: {
+				a: 1,
+				b: false,
+				c: 'test',
+				d: function(config) {
+					return config.a;
+				},
+				f: configBuilder.func(function(a, b, c) {
+					var k = a + b + c;
+					return k;
+				})
+			}
+		});
+
+		var str = configBuilder.stringify('stringifyConfig');
+
+		expect(str).to.be('{"a":1,"b":false,"c":"test","d":1,"f":function (a, b, c)' +
+			' {var k = a + b + c;return k;}}');
+
+		str = configBuilder.stringify('stringifyConfig', 2);
+
+		expect(str).to.be('{\n  "a": 1,\n  "b": false,\n  "c": "test",\n  "d": 1,' +
+			'\n  "f": function (a, b, c) {var k = a + b + c;return k;}\n}');
+	});
 });
