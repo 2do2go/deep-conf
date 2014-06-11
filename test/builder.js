@@ -105,24 +105,5 @@ describe('ConfigBuilder', function() {
 
 		expect(str).to.be('{\n  "a": 1,\n  "b": false,\n  "c": "test",\n  "d": 1,' +
 			'\n  "f": function (a, b, c) {var k = a + b + c;return k;}\n}');
-
-		configBuilder.register({
-			name: 'stringConfig',
-			config: {
-				host: 'localhost',
-				port: 80,
-				fullName: function(config) {
-					return 'http://' + config.host + ':' + config.port;
-				},
-				sum: configBuilder.func(function(a, b) {
-					var sum = a + b;
-					return sum;
-				})
-			}
-		});
-
-var str = configBuilder.stringify('stringConfig', 2);
-
-console.log(str);
 	});
 });
