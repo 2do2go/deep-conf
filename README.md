@@ -103,6 +103,37 @@ console.log(config.f(1, 2));
 // 3
 ```
 
+**stringify**: get registered config as string with optional space count (like JSON.stringify)
+
+```js
+// Register config "stringConfig"
+configBuilder.register({
+	name: 'stringConfig',
+	config: {
+		host: 'localhost',
+		port: 80,
+		fullName: function(config) {
+			return 'http://' + config.host + ':' + config.port;
+		},
+		sum: configBuilder.func(function(a, b) {
+			var sum = a + b;
+			return sum;
+		})
+	}
+});
+
+// Stringify config "stringConfig"
+var str = configBuilder.stringify('stringConfig', 2);
+
+console.log(str);
+// {
+//   "host": "localhost",
+//   "port": 80,
+//   "fullName": "http://localhost:80",
+//   "sum": function (a, b) {var sum = a + b;return sum;}
+// }
+```
+
 **ConfigBuilder**: create instance with constructor
 
 ```js
