@@ -226,19 +226,22 @@ describe('ConfigBuilder', function() {
 					f: configBuilder.func(function(a, b, c) {
 						var k = a + b + c;
 						return k;
-					})
+					}),
+					g: /abc/gim
 				}
 			});
 
 			var str = configBuilder.stringify('stringifyConfig');
 
 			expect(str).to.be('{"a":1,"b":false,"c":"test","d":1,"f":' +
-				'function (a, b, c) {var k = a + b + c;return k;}}');
+				'function (a, b, c) {var k = a + b + c;return k;},' +
+				'"g":new RegExp("abc", "gim")}');
 
 			str = configBuilder.stringify('stringifyConfig', 2);
 
 			expect(str).to.be('{\n  "a": 1,\n  "b": false,\n  "c": "test",\n  "d": 1,' +
-				'\n  "f": function (a, b, c) {var k = a + b + c;return k;}\n}');
+				'\n  "f": function (a, b, c) {var k = a + b + c;return k;},\n  ' +
+				'"g": new RegExp("abc", "gim")\n}');
 		});
 	});
 });
