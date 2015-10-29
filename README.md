@@ -38,7 +38,9 @@ console.log(config.host, config.port, config.fullName);
 
 ## API
 
-**register**: create new config with name and optional parent
+**register**: create new config with name and optional parent. NOTE: field __info__, 
+that contains name and parentName, will be added to config, so do not add to your
+config field with this name, because it will be overrided.
 
 ```js
 // Register new config with name "development"

@@ -67,10 +67,13 @@ describe('ConfigBuilder', function() {
 				name: 'empty'
 			});
 
-			var config = configBuilder.get('empty');
+			var configName = 'empty',
+				config = configBuilder.get(configName);
 
 			expect(config).to.be.an('object');
-			expect(config).to.eql({});
+			expect(config).to.eql({
+				__info__: {name: configName}
+			});
 		});
 
 		it('should be ok with simple config', function() {
