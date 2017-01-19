@@ -64,6 +64,36 @@ describe('helpers', function() {
 		});
 	});
 
+	describe('.isPlainObject()', function() {
+		it('with number arg', function() {
+			expect(helpers.isPlainObject(5)).to.not.be.ok();
+		});
+
+		it('with string arg', function() {
+			expect(helpers.isPlainObject('3')).to.not.be.ok();
+		});
+
+		it('with object arg', function() {
+			expect(helpers.isPlainObject({})).to.be.ok();
+		});
+
+		it('with array arg', function() {
+			expect(helpers.isPlainObject([])).to.not.be.ok();
+		});
+
+		it('with function arg', function() {
+			expect(helpers.isPlainObject(function() {})).to.not.be.ok();
+		});
+
+		it('with date arg', function() {
+			expect(helpers.isPlainObject(new Date())).to.not.be.ok();
+		});
+
+		it('with regexp arg', function() {
+			expect(helpers.isPlainObject(/./)).to.not.be.ok();
+		});
+	});
+
 	describe('.isArray()', function() {
 		it('with object arg', function() {
 			expect(helpers.isArray({})).to.not.be.ok();
