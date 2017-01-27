@@ -78,7 +78,7 @@ describe('ConfigBuilder', function() {
 			expect(config).to.eql({
 				__info__: {
 					name: 'empty1',
-					path: ['empty1']
+					chain: ['empty1']
 				}
 			});
 
@@ -89,7 +89,7 @@ describe('ConfigBuilder', function() {
 				__info__: {
 					name: 'empty2',
 					parentName: 'empty1',
-					path: ['empty1', 'empty2']
+					chain: ['empty1', 'empty2']
 				}
 			});
 		});
