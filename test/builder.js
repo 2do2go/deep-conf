@@ -64,15 +64,33 @@ describe('ConfigBuilder', function() {
 
 		it('should be ok without config in params', function() {
 			configBuilder.register({
-				name: 'empty'
+				name: 'empty1'
 			});
 
-			var configName = 'empty',
-				config = configBuilder.get(configName);
+			configBuilder.register({
+				name: 'empty2',
+				parent: 'empty1'
+			});
+
+			var config = configBuilder.get('empty1');
 
 			expect(config).to.be.an('object');
 			expect(config).to.eql({
-				__info__: {name: configName}
+				__info__: {
+					name: 'empty1',
+					path: ['empty1']
+				}
+			});
+
+			config = configBuilder.get('empty2');
+
+			expect(config).to.be.an('object');
+			expect(config).to.eql({
+				__info__: {
+					name: 'empty2',
+					parentName: 'empty1',
+					path: ['empty1', 'empty2']
+				}
 			});
 		});
 
